@@ -88,14 +88,9 @@ void setup() {
   while(!Serial) { }  // Wait for Serial to start
   Serial.println("Serial ready.");
   Wire.begin(I2C_SDA_PIN, I2C_SCL_PIN);
-  /*Wire.beginTransmission(GPIO_EXTENDER_ADDR);
-  Wire.write('\x00');
-  Wire.write((unsigned char) 0b00000000);
-  Wire.endTransmission();*/
   Wire.beginTransmission(GPIO_EXTENDER_ADDR);
   Wire.write('\x01');
   Wire.write((unsigned char) 0b11111000);
-  //Wire.write('\x00');
   Wire.endTransmission();
   Serial.println("Setup complete.");
   i2cScanDevices();
